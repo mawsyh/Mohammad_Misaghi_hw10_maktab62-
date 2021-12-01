@@ -1,11 +1,20 @@
 const fs = require("fs");
 const http = require("http");
 const port = 4000;
-const homePage = fs.readFileSync("./src/index.html");
-const productsPage = fs.readFileSync("./src/products.html");
-const rulesPage = fs.readFileSync("./src/rules.html");
-const aboutUsPage = fs.readFileSync("./src/about.html");
-const contactUsPage = fs.readFileSync("./src/contact.html");
+let homePage;
+let productsPage;
+let rulesPage;
+let aboutUsPage;
+let contactUsPage;
+try {
+  homePage = fs.readFileSync("./src/index.html");
+  productsPage = fs.readFileSync("./src/products.html");
+  rulesPage = fs.readFileSync("./src/rules.html");
+  aboutUsPage = fs.readFileSync("./src/about.html");
+  contactUsPage = fs.readFileSync("./src/contact.html");
+} catch (e) {
+  console.log(e);
+}
 
 const httpServer = http.createServer((req, res) => {
   pageLoader(req.url, res);
