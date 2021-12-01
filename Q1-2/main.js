@@ -8,7 +8,7 @@ const testJsonFile = {
 };
 
 const httpServer = http.createServer((req, res) => {
-  if (req.url === "/api/json") {
+  if (req.url === "/api/json" && req.method === "GET") {
     res.write(JSON.stringify(testJsonFile));
     res.end();
   }

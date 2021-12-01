@@ -9,7 +9,7 @@ try {
 }
 
 const httpServer = http.createServer((req, res) => {
-  if (req.url === "/") {
+  if (req.url === "/" && req.method === "GET") {
     res.write(htmlPage);
     res.end();
   }
