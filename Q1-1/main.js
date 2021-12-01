@@ -9,5 +9,4 @@ const httpServer = http.createServer((req, res) => {
 });
 
 httpServer.listen(port);
-
 console.log("Listening on port " + port);
